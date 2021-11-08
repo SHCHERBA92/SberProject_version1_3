@@ -8,35 +8,76 @@
     <link rel="stylesheet" type="text/css" href="/static/styles/homeSCC.css">
 </head>
 <body>
-<header class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand justify-content-start">ProgFunk</a>
-        <div class="collapse navbar-collapse justify-content-lg-center m-2" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" aria-current="page" href="#">Главная</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#">Добавить Шутеечку</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#">Топчик</a>
-                </li>
-            <!--<li class="nav-item">
-                  <a class="nav-link" href="#">Disabled</a>
-                </li>-->
-            </ul>
+<!--<header class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand justify-content-start">ProgFunk</a>-->
+<!--        <div class="collapse navbar-collapse justify-content-lg-center m-2" id="navbarNav">-->
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link text-uppercase" aria-current="page" href="#">Главная</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link text-uppercase" href="#">Добавить Шутеечку</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link text-uppercase" href="#">Топчик</a>-->
+<!--                </li>-->
+<!--            &lt;!&ndash;<li class="nav-item">-->
+<!--                  <a class="nav-link" href="#">Disabled</a>-->
+<!--                </li>&ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--        <form class="d-flex">-->
+<!--            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success" type="submit">Поиск</button>-->
+<!--        </form>-->
+<!--        <div class="col-2 text-end">-->
+<!--            <a href="/auth/login"> <button type="button" class="btn btn-outline-primary me-2">Войти</button></a>-->
+<!--            <a href="/auth/registration"> <button type="button" class="btn btn-primary">Регистрация</button></a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<div th:insert="blocks/header::myHeader"></div>
+
+<div class="container mt-5">
+    <div class="row mb-2 mt-1">
+        <div class="col-md-6 offset-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"> </strong>
+                    <h3 class="mb-0">@Заголовок</h3>
+                    <div class="mb-1 text-muted">@Дата публикации</div>
+                    <p class="card-text mb-auto">@Текс</p>
+                    <a href="#" class="stretched-link">Ссылка на весь текст</a>
+                </div>
+                <!-- <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div> -->
+            </div>
         </div>
 
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
-        </form>
-        <div class="col-2 text-end">
-            <a href="/auth/login"> <button type="button" class="btn btn-outline-primary me-2">Войти</button></a>
-            <a href="/auth/registration"> <button type="button" class="btn btn-primary">Регистрация</button></a>
+    </div>
+    <div class="row mb-2 mt-1">
+        <div class="col-md-6 offset-md-3">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary"> </strong>
+                    <h3 class="mb-0">@Заголовок</h3>
+                    <div class="mb-1 text-muted">@Дата публикации</div>
+                    <p class="card-text mb-auto">@Текс</p>
+                    <a href="#" class="stretched-link">Ссылка на весь текст</a>
+                </div>
+                <!-- <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div> -->
+            </div>
         </div>
     </div>
-</header>
+</div>
+
+<div th:insert="blocks/footer::myFooter"></div>
+
 </body>
 </html>
