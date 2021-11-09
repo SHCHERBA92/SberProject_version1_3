@@ -1,6 +1,7 @@
 <div th:fragment = "myHeader">
   <header class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="container-fluid"
+         th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
       <a class="navbar-brand justify-content-start">ProgFunk</a>
       <div class="collapse navbar-collapse justify-content-lg-center m-2" id="navbarNav">
         <ul class="navbar-nav">
@@ -23,10 +24,23 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Поиск</button>
       </form>
-      <div class="col-2 text-end">
-        <a href="/auth/login"> <button type="button" class="btn btn-outline-primary me-2">Войти</button></a>
-        <a href="/auth/registration"> <button type="button" class="btn btn-primary">Регистрация</button></a>
-      </div>
+
+<!--      <div class="col-2 text-end"-->
+<!--           th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">-->
+
+        <div th:case="${false}" class="col-2 text-end" >
+          <a href="/auth/login"> <button type="button" class="btn btn-outline-primary me-2">Войти</button></a>
+          <a href="/auth/registration"> <button type="button" class="btn btn-primary">Регистрация</button></a>
+        </div>
+
+        <div th:case="${true}" class="col-3 text-end" >
+          <a th:text = "${#authentication.getName()}" class="text-info"> </a>
+          <a href="/logout"> <button type="submit" class="btn btn-primary">Выйти</button></a>
+        </div>
+
+<!--      </div>-->
+<!--th:text = "${#authentication.getName()}-->
+
     </div>
   </header>
 </div>

@@ -45,10 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
             .and()
                 .formLogin()
-                .loginPage("/auth/login").permitAll().defaultSuccessUrl("/auth/succses")
+                .loginPage("/auth/login").defaultSuccessUrl("/").permitAll()
             .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout","POST"))
-                .clearAuthentication(true).logoutSuccessUrl("/auth/login");
+                .logout().logoutSuccessUrl("/auth/login");
+//                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout","POST"))
+//                .clearAuthentication(true).logoutSuccessUrl("/auth/login");
 
     }
 
