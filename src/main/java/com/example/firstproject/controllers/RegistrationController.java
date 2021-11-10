@@ -39,6 +39,7 @@ public class RegistrationController {
         users.setPassword(password);
         users.setStatus(Status.ACTIVE);
         usersRepository.save(users);
+        model.addAttribute("currentUser", users);
 
         return "succses";
     }

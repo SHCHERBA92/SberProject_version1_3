@@ -17,7 +17,7 @@ public class HomeController {
     public String home(Model model)
     {
         Iterable<MessageFun> messageFuns = messageFunRepository.findAll();
-
+        model.addAttribute("messageFuns", messageFuns);
         return "home";
     }
 }

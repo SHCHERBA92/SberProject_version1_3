@@ -19,8 +19,9 @@ public class MessageFun {
     @JoinColumn(name = "author_id")
     private Users author;
 
+
     //*
-    // Не уверен, но возможно лайки и дизлайки можно нужно здесь ставить в этой базе данных
+    // Не уверен, но возможно лайки и дизлайки нужно здесь ставить в этой базе данных
     // *//
 
     public Long getId() {
