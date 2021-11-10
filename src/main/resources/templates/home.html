@@ -14,36 +14,31 @@
     <div class="row mb-2 mt-1">
         <div class="col-md-6 offset-md-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+<!--                <div class="col p-4 d-flex flex-column position-static">-->
+<!--                    <strong class="d-inline-block mb-2 text-primary"> </strong>-->
+<!--                    <h3 class="mb-0" th:text="${mess.getTitle()}">@Заголовок</h3>-->
+<!--                    <div class="mb-1 text-muted">@Дата публикации</div>-->
+<!--                    <p class="card-text mb-auto" th:text="${mess.getMessage()}">@Текс</p>-->
+<!--                    <a href="#" class="stretched-link">Ссылка на весь текст</a>-->
+<!--                </div>-->
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary"> </strong>
-                    <h3 class="mb-0" th:text="${mess.getTitle()}">@Заголовок</h3>
-                    <div class="mb-1 text-muted">@Дата публикации</div>
-                    <p class="card-text mb-auto" th:text="${mess.getMessage()}">@Текс</p>
-                    <a href="#" class="stretched-link">Ссылка на весь текст</a>
+                    <h3 class="mb-5 border-bottom" th:text="${mess.getTitle()}">@Заголовок</h3>
+                    <p class="card-text mb-2 border-bottom" th:text="${mess.getMessage()}">@Текс</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2" >
+                        <small class="mb-1 text-muted">@Дата публикации</small>
+                        <small class="mx-lg-5" th:text="'Автор: ' + ${mess.getAuthor().getLastName()}">@Автор</small>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Редактировать</button>
+                    </div>
                 </div>
-                <!-- <div class="col-auto d-none d-lg-block">
-                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                </div> -->
+
             </div>
         </div>
 
     </div>
-<!--    <div class="row mb-2 mt-1">-->
-<!--        <div class="col-md-6 offset-md-3">-->
-<!--            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">-->
-<!--                <div class="col p-4 d-flex flex-column position-static">-->
-<!--                    <strong class="d-inline-block mb-2 text-primary"> </strong>-->
-<!--                    <h3 class="mb-0">@Заголовок</h3>-->
-<!--                    <div class="mb-1 text-muted">@Дата публикации</div>-->
-<!--                    <p class="card-text mb-auto">@Текс</p>-->
-<!--                    <a href="#" class="stretched-link">Ссылка на весь текст</a>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; <div class="col-auto d-none d-lg-block">-->
-<!--                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
-<!--                </div> &ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+
 </div>
 
 <div th:insert="blocks/footer::myFooter"></div>
