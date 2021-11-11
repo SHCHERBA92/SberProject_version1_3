@@ -31,16 +31,25 @@ public class RegistrationController {
                           @RequestParam String lastName,
                           @RequestParam String password, Model model)
     {
-        Users users = new Users();
-        users.setEmail(email);
-        users.setFirstName(firstName);
-        users.setLastName(lastName);
-        users.setRole(Role.USER);
-        users.setPassword(password);
-        users.setStatus(Status.ACTIVE);
-        usersRepository.save(users);
-        model.addAttribute("currentUser", users);
+        if (usersRepository.findByEmail(email).get() != null)
+        {
+            String str = "E-mail уже занят " + "\n" + "Введите новый e-mail или войдите в систему";
 
-        return "succses";
+            model.addAttribute("notUniqueEmail", str);
+            return "/registration";
+        }else{
+            Users users = new Users();
+            users.setEmail(email);
+            users.setFirstName(firstName);
+            users.setLastName(lastName);
+            users.setRole(Role.USER);
+            users.setPassword(password);
+            users.setStatus(Status.ACTIVE);
+
+            usersRepository.save(users);
+            model.addAttribute("currentUser", users);
+
+            return "succses";
+        }
     }
 }

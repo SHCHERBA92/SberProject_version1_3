@@ -23,8 +23,6 @@ public class HomeController {
     {
         List<MessageFun> messageFuns = messageFunRepository.findAll();
         Collections.sort(messageFuns, (o1, o2) -> o2.getLocalDate().compareTo(o1.getLocalDate()));
-//        List<MessageFun> messageFuns = messageFunRepository.findAll().stream().collect(Collectors.toList());
-//        Collections.sort(messageFuns,Collections.reverseOrder());
 
         model.addAttribute("messageFuns", messageFuns);
 

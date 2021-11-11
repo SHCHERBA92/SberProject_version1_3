@@ -24,9 +24,12 @@
                         <small class="mb-1 text-muted" th:text="${mess.getLocalDate().toString()}">@Дата публикации</small>
                         <small class="mx-lg-5" th:text="'Автор: ' + ${mess.getAuthor().getLastName()}">@Автор</small>
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Редактировать</button>
+
+                    <div class="d-flex justify-content-start" th:if="${#authentication.getName().equals(mess.getAuthor().getEmail())}">
+                        <a th:href="'/message/add/' + ${mess.getId()}"> <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Редактировать</button></a>
+                        <a > <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Удалить</button></a>
                     </div>
+
                 </div>
 
             </div>

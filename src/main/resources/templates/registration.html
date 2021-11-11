@@ -1,27 +1,5 @@
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>Document</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--  <form method="post" action="/auth/registration">-->
-<!--    <input type="text" name="email" placeholder="email">-->
-<!--    <input type="text" name="firstName" placeholder="Name">-->
-<!--    <input type="text" name="lastName" placeholder="NickName">-->
-<!--    <input type="password" name="password" placeholder="password">-->
-<!--      <input type="submit" value="REG">-->
-<!--  </form>-->
-<!--</body>-->
-<!--</html>-->
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,8 +11,10 @@
 
 </head>
 <body>
+
 <div class="mx-auto">
     <div class="dropdown-menu-md-start d-grid col-2 mx-auto pt-lg-5">
+        <h4 th:text="${notUniqueEmail}"></h4>
         <form class="px-4 py-3" method="post" action="/auth/registration">
             <div class="mb-3">
                 <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>

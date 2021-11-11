@@ -10,12 +10,12 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class MessageFunController {
@@ -60,5 +60,23 @@ public class MessageFunController {
         messageFunRepository.save(messageFun);
 
         return "redirect:/";
+    }
+
+    //// Для редактирования сообщения
+
+    @GetMapping("/message/add/{id}")
+    public String editMess(@PathVariable Long id, Model model)
+    {
+        if (!messageFunRepository.existsById(id))
+        {
+            return "redirect:/";
+        }
+//        Optional<MessageFun> messageFun = messageFunRepository.findById(id);
+//        ArrayList<MessageFun> messageFuns = new ArrayList<>();
+//        messageFun.ifPresent(messageFuns::add);
+
+        MessageFun messageFun = messageFunRepository.getById(id);
+
+        return "edit_message_fun";
     }
 }
