@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+
 @Controller
 public class MessageFunController {
 
@@ -33,7 +35,7 @@ public class MessageFunController {
         return "add_message_fun";
     }
 
-    @PostMapping("/message/addMesFunPost")
+    @PostMapping("message/add")
     public String addMesFunPost(
 //                                @AuthenticationPrincipal Users users,
                                 @RequestParam String title,
@@ -52,8 +54,11 @@ public class MessageFunController {
         Users carrentUsers = usersRepository.findByEmail(name).get();
         messageFun.setAuthor(carrentUsers);
 
+        LocalDate localDate = LocalDate.now();
+        messageFun.setLocalDate(localDate);
+
         messageFunRepository.save(messageFun);
 
-        return "home";
+        return "redirect:/";
     }
 }

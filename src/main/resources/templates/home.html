@@ -10,23 +10,18 @@
 
 <div th:insert="blocks/header::myHeader"></div>
 
+<!-- Цикл сделать с конца к началу-->
+
 <div class="container mt-5" th:each="mess : ${messageFuns}">
     <div class="row mb-2 mt-1">
         <div class="col-md-6 offset-md-3">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
-<!--                <div class="col p-4 d-flex flex-column position-static">-->
-<!--                    <strong class="d-inline-block mb-2 text-primary"> </strong>-->
-<!--                    <h3 class="mb-0" th:text="${mess.getTitle()}">@Заголовок</h3>-->
-<!--                    <div class="mb-1 text-muted">@Дата публикации</div>-->
-<!--                    <p class="card-text mb-auto" th:text="${mess.getMessage()}">@Текс</p>-->
-<!--                    <a href="#" class="stretched-link">Ссылка на весь текст</a>-->
-<!--                </div>-->
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-5 border-bottom" th:text="${mess.getTitle()}">@Заголовок</h3>
                     <p class="card-text mb-2 border-bottom" th:text="${mess.getMessage()}">@Текс</p>
                     <div class="d-flex justify-content-between align-items-center mb-2" >
-                        <small class="mb-1 text-muted">@Дата публикации</small>
+                        <small class="mb-1 text-muted" th:text="${mess.getLocalDate().toString()}">@Дата публикации</small>
                         <small class="mx-lg-5" th:text="'Автор: ' + ${mess.getAuthor().getLastName()}">@Автор</small>
                     </div>
                     <div class="d-flex justify-content-start">
@@ -36,9 +31,7 @@
 
             </div>
         </div>
-
     </div>
-
 </div>
 
 <div th:insert="blocks/footer::myFooter"></div>
