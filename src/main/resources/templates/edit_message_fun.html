@@ -16,16 +16,15 @@
 <div class="container mt-5">
   <div class="row mb-2 mt-1" >
     <div class="col-md-6 offset-md-3">
-      <h2>Добавьте сообщение</h2>
+      <h2>Редактирование сообщения</h2>
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <form action="/message/edit" method="post">
+          <form th:action="@{/message/edit/} + ${messageFromCurrentId.getId()}" method="post">  <!--action="/message/edit/" -->
             <input type="text" placeholder="@Заголовок" name="title" class="form-control mb-2" th:value="${messageFromCurrentId.getTitle()}"> <!-- <h3 class="mb-0">@Заголовок</h3> -->
             <!-- <div class="mb-1 text-muted">@Дата публикации</div> -->
             <textarea placeholder="@Текст" name="message" class="form-control mb-4" rows="3" th:utext="${messageFromCurrentId.getMessage()}"></textarea>    <!-- <p class="card-text mb-auto">@Текс</p> -->
-            <input type="submit" name="reload" value="Обновить" class="btn btn-success">    <!-- <a href="#" class="stretched-link">Ссылка на весь текст</a> -->
-
-              <input type="submit" name="cancel" value="Отмена" class="btn btn-success">
+            <input type="submit" name="actionBtn" value="Обновить" class="btn btn-success">    <!-- <a href="#" class="stretched-link">Ссылка на весь текст</a> -->
+              <input type="submit" name="actionBtn" value="Отмена" class="btn btn-success">
 
           </form>
         </div>

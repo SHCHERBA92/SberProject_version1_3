@@ -20,6 +20,8 @@ import java.util.Optional;
 @Controller
 public class MessageFunController {
 
+    private boolean strBool = false;
+
     @Autowired
     private MessageFunRepository messageFunRepository;
 
@@ -30,28 +32,29 @@ public class MessageFunController {
     private UsersRepository usersRepository;
 
     @GetMapping("/message/add")
-    public String messageFun()
+    public String messageFun(Model model)
     {
+        model.addAttribute("addInputs", strBool);
+        this.strBool = false;
         return "add_message_fun";
     }
 
-//    @PostMapping("/message/cancel")
-//    public String cancel()
-//    {
-//        return "redirect:/";
-//    }
 
     @PostMapping("message/add")
     public String addMesFunPost(
 //                                @AuthenticationPrincipal Users users,
                                 @RequestParam String title,
                                 @RequestParam String message,
-                                @RequestParam String actionBtn)
+                                @RequestParam String actionBtn,
+                                Model model)
     {
-//        if (title == null || message == null)
-//        {
-//
-//        }
+
+        if ((title.equals("") || message.equals("") ) & (!actionBtn.equals("Отмена")))
+        {
+            this.strBool = true;
+
+            return "redirect:/message/add";
+        }
         if (actionBtn.equals("Добавить")) {
 
             MessageFun messageFun = new MessageFun();
@@ -68,24 +71,7 @@ public class MessageFunController {
 
             messageFunRepository.save(messageFun);
         }
+
         return "redirect:/";
-    }
-
-    //// Для редактирования сообщения
-
-    @GetMapping("/message/edit/{id}")
-    public String editMess(@PathVariable Long id, Model model)
-    {
-        if (!messageFunRepository.existsById(id))
-        {
-            return "redirect:/";
-        }
-//        Optional<MessageFun> messageFun = messageFunRepository.findById(id);
-//        ArrayList<MessageFun> messageFuns = new ArrayList<>();
-//        messageFun.ifPresent(messageFuns::add);
-
-        MessageFun messageFun = messageFunRepository.getById(id);
-        model.addAttribute("messageFromCurrentId",messageFun);
-        return "edit_message_fun";
     }
 }
