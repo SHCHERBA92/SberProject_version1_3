@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 @Controller
 public class EditMessageFunController {
@@ -54,8 +56,7 @@ public class EditMessageFunController {
             MessageFun messageFun = messageFunRepository.findById(id).orElseThrow();
             messageFun.setTitle(title);
             messageFun.setMessage(message);
-            messageFun.setLocalDate(LocalDate.now());
-
+//            messageFun.setLocalDate(LocalDate.now());
             messageFunRepository.save(messageFun);
         }
         return "redirect:/";

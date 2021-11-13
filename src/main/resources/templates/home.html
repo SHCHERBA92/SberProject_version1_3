@@ -27,7 +27,7 @@
 
                     <div class="d-flex justify-content-start" th:if="${#authentication.getName().equals(mess.getAuthor().getEmail())}">
                         <a th:href="'/message/edit/' + ${mess.getId()}"> <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Редактировать</button></a>
-                        <a > <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Удалить</button></a>
+                        <a th:href="'/message/delete/' + ${mess.getId()}"> <button type="submit" value="Редактировать статью" class="btn btn-sm btn-outline-primary ">Удалить</button></a>
                     </div>
 
                 </div>

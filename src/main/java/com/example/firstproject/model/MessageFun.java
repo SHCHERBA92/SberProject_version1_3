@@ -21,7 +21,11 @@ public class MessageFun {
     @JoinColumn(name = "author_id")
     private Users author;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "dd/MM/YY")
+//    @Column(name = "date_send")
+//    private LocalDate localDate;
+
+    @DateTimeFormat(pattern = "dd/MM/YY")
     @Column(name = "date_send")
     private LocalDate localDate;
 
