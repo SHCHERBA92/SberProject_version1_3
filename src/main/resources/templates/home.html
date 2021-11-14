@@ -22,7 +22,7 @@
                     <p class="card-text mb-2 border-bottom" th:text="${mess.getMessage()}">@Текс</p>
                     <div class="d-flex justify-content-between align-items-center mb-2" >
                         <small class="mb-1 text-muted" th:text="${mess.getLocalDate().toString()}">@Дата публикации</small>
-                        <small class="mx-lg-5" th:text="'Автор: ' + ${mess.getAuthor().getLastName()}">@Автор</small>
+                        <small class="mx-lg-5" th:text="'Автор: ' + ${mess.getAuthor().getNickName()}">@Автор</small>
                     </div>
 
                     <div class="d-flex justify-content-start" th:if="${#authentication.getName().equals(mess.getAuthor().getEmail())}">

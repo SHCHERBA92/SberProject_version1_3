@@ -1,3 +1,8 @@
+/**
+ * класс унаследованный от UserDetails для того, что бы переделать мою сущность Users в User(Spring Security),
+ * реализованно это чрезе метод "public static UserDetails userDetailsFromMyUsers(Users users)"
+ * */
+
 package com.example.firstproject.security_service;
 
 import com.example.firstproject.model.Users;
@@ -61,7 +66,9 @@ public class MySecurityUsers implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails userDetailsFromMyUsers(Users users)
+
+
+     public static UserDetails userDetailsFromMyUsers(Users users)
     {
         return new User(users.getEmail(), users.getPassword(),
                 users.getStatus().name().equals("ACTIVE"),

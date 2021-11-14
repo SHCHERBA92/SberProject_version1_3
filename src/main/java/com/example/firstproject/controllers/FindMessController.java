@@ -48,7 +48,7 @@ public class FindMessController {
         currectListMessFuns = messageFuns.stream().filter(messageFun ->
             messageFun.getMessage().contains(findKey) |
             messageFun.getTitle().contains(findKey) |
-            messageFun.getAuthor().getLastName().contains(findKey)
+            messageFun.getAuthor().getNickName().contains(findKey)
         ).collect(Collectors.toList());
 
         if (currectListMessFuns.isEmpty())

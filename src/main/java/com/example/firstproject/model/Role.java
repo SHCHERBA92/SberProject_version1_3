@@ -1,3 +1,11 @@
+/**
+ * перечисление ролей пользователя.
+ * У каждой роли есть свой Premission.
+ *
+ * SimpleGrantedAuthority - сущность о которой знает Spring Security.
+ *      Эта сущность позволяет определить Spring Security связь доступов.
+*  Мы конвертируем наши роли в SimpleGrantedAuthority
+ * */
 package com.example.firstproject.model;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

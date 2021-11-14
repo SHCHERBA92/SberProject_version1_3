@@ -1,3 +1,9 @@
+/**
+ * UserDeteilsServiceImpl - является сервисом, имплемитированным от UserDetailsService с реализацией
+ *      его единтсенного метода public UserDetails loadUserByUsername(String s),
+ *      который вернёт нам MySecurityUsers.userDetailsFromMyUsers(users) для подмены в SecurityConfig;
+ * */
+
 package com.example.firstproject.security_service;
 
 import com.example.firstproject.model.Users;

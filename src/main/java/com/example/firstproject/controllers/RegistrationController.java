@@ -35,7 +35,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(@RequestParam String email,
                           @RequestParam String firstName,
-                          @RequestParam String lastName,
+                          @RequestParam String nickName,
                           @RequestParam String password, Model model)
     {
         Optional<Users> userFromDb = usersRepository.findByEmail(email);
@@ -47,7 +47,7 @@ public class RegistrationController {
             Users users = new Users();
             users.setEmail(email);
             users.setFirstName(firstName);
-            users.setLastName(lastName);
+            users.setNickName(nickName);
             users.setRole(Role.USER);
             users.setPassword(password);
             users.setStatus(Status.ACTIVE);
