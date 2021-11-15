@@ -42,23 +42,19 @@ public class MessageFunController {
 
     @PostMapping("message/add")
     public String addMesFunPost(
-//                                @AuthenticationPrincipal Users users,
                                 @RequestParam String title,
                                 @RequestParam String message,
                                 @RequestParam String actionBtn,
                                 Model model)
     {
-
         if ((title.equals("") || message.equals("") ) & (!actionBtn.equals("Отмена")))
         {
             this.strBool = true;
-
             return "redirect:/message/add";
         }
         if (actionBtn.equals("Добавить")) {
-
             MessageFun messageFun = new MessageFun();
-//        Users users = usersRepository.findAll().st
+
             messageFun.setMessage(message);
             messageFun.setTitle(title);
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

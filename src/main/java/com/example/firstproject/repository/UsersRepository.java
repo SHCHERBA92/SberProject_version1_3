@@ -1,6 +1,6 @@
 /**
  * Интерфейс по взаимодействию с БД User
- * Унаследован от стандартного интерфейча Spring JPA JpaRepository
+ * Унаследован от стандартного интерфейcа Spring JPA JpaRepository
  * */
 
 package com.example.firstproject.repository;

@@ -15,13 +15,13 @@ public class MailConfig {
     public JavaMailSender getJavaMailSender()
     {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
-        javaMailSender.setHost("smtp.rambler.ru");
-        javaMailSender.setPort(465 );
+        javaMailSender.setHost("smtp.gmail.com");
+        javaMailSender.setPort(587);
 
-        javaMailSender.setUsername("vony4ka666@rambler.ru");
-        javaMailSender.setPassword("Parechnaya_94");
+        javaMailSender.setUsername("kirillshcherba92@gmail.com");
+        javaMailSender.setPassword("****");
 //        javaMailSender.setUsername("vony4ka666@rambler.ru");
-//        javaMailSender.setPassword("Parechnaya_94");
+//        javaMailSender.setPassword("****");
 
         Properties properties = javaMailSender.getJavaMailProperties();
         properties.put("mail.transport.protocol", "smtp");

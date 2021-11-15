@@ -77,6 +77,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    /**
+     * Заполнение Authentification для того, то бы Spring Security знал о том какие пользователи могут находиться
+     *      в системе;
+     * */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
@@ -92,6 +96,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(12);
     }
 
+    /**
+     * создание и заполнение своего DaoAuthenticationProvider.
+     * */
     @Bean
     protected DaoAuthenticationProvider daoAuthenticationProvider()
     {
